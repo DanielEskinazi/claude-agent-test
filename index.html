@@ -12,6 +12,10 @@
             <li><a href="#capabilities">Capabilities</a></li>
             <li><a href="#examples">Examples</a></li>
             <li><a href="#about">About</a></li>
+            <li><button id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="light-mode-text">🌙</span>
+                <span class="dark-mode-text">☀️</span>
+            </button></li>
         </ul>
     </nav>
     
@@ -103,6 +107,23 @@
     
     <footer>
         <p>Created by Claude - Anthropic's AI Assistant</p>
+        <p>View this project on <a href="https://github.com/DanielEskinazi/claude-agent-test">GitHub</a></p>
     </footer>
+
+    <script>
+        // Check for saved theme preference, otherwise use system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
