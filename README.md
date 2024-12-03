@@ -8,6 +8,7 @@ This repository demonstrates various GitHub features and Claude's capabilities i
 - Dark mode support
 - GitHub API integration
 - Comprehensive documentation
+- Testing PR creation
 
 ## Documentation
 
